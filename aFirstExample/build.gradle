@@ -8,3 +8,7 @@ dependencies {
 	groovy "org.codehaus.groovy:groovy-all:2.1.0"
 	testCompile "org.spockframework:spock-core:0.7-groovy-2.0"
 }
+
+buildscript {
+    apply from: 'https://github.com/valkolovos/gradle_cobertura/raw/master/repo/gradle_cobertura/gradle_cobertura/1.2.1/coberturainit.gradle'
+}
