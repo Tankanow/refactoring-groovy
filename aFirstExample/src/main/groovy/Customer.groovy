@@ -33,12 +33,8 @@
 		String result = "Rental Record for ${getName()}\n"
 
 		rentals.each { 
-			// add frequent renter points
-			frequentRenterPoints ++
-			// add bonus for a two day new release rental
-			if ((it.getMovie().getPriceCode() == Movie.NEW_RELEASE) &&
-				it.getDaysRented() > 1) 
-				frequentRenterPoints ++
+
+			frequentRenterPoints += it.getFrequentRenterPoints()
 
 			//show figures for this rental
 			result += "\t${it.getMovie().getTitle()}\t${String.valueOf(it.getCharge())}\n" 
@@ -48,6 +44,5 @@
 		//add footer lines
 		result += "Amount owed is ${String.valueOf(totalAmount)}\n"
 		result += "You earned ${String.valueOf(frequentRenterPoints)} frequent renter points"
-		result
 	}
  }
