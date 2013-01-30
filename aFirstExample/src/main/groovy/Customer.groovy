@@ -31,14 +31,28 @@
 		String result = "Rental Record for ${getName()}\n"
 
 		rentals.each { 
-			result += "\t${it.getMovie().getTitle()}\t${String.valueOf(it.getCharge())}\n" 
+			result += "\t${it.getMovie().getTitle()}\t${it.getCharge()}\n" 
 		}
 
 		//add footer lines
-		result += "Amount owed is ${String.valueOf(getTotalCharge())}\n"
-		result += "You earned ${String.valueOf(getTotalFrequentRenterPoints())} frequent renter points"
+		result += "Amount owed is ${getTotalCharge()}\n"
+		result += "You earned ${getTotalFrequentRenterPoints()} frequent renter points"
 	}
 
+
+	String htmlStatement(){
+
+		String result = "<H1>Rentals for <EM>${getName()}</EM></H1><P>\n"
+
+		rentals.each {
+			//show figures for each rental
+			result += "${it.getMovie().getTitle()}: ${it.getCharge()}<BR>\n"
+		}
+
+		//add footer lines
+		result += "<P>You owe <EM>${getTotalCharge()}</EM><P>\n"
+		result += "On this rental you earned <EM>${getTotalFrequentRenterPoints()}</EM> frequent renter points<P>"
+	}
 
 	/**
 	 * Get the total charge for this customer
