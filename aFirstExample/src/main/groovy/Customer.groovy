@@ -33,7 +33,7 @@
 		String result = "Rental Record for ${getName()}\n"
 
 		rentals.each { 
-			double thisAmount = amountFor(it)
+			double thisAmount = it.getCharge()
 
 			// add frequent renter points
 			frequentRenterPoints ++
@@ -51,12 +51,5 @@
 		result += "Amount owed is ${String.valueOf(totalAmount)}\n"
 		result += "You earned ${String.valueOf(frequentRenterPoints)} frequent renter points"
 		result
-	}
-
-	/**
-	 * return the amount changed for the given rental
-	 **/
-	private double amountFor(Rental aRental){
-		aRental.getCharge();
 	}
  }
