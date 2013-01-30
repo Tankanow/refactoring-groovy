@@ -59,4 +59,25 @@ class CustomerTest extends Specification {
         [new Rental(BAMBI,4)]       |   "Rental Record for Adam\n\tBambi\t3.0\nAmount owed is 3.0\nYou earned 1 frequent renter points"
     }
 
+
+    def "Let's test that new htmlStatement method"(){
+
+        setup:
+        Customer customer = new Customer("Adam")
+
+        when:
+        customer.rentals = rentals
+
+        then:
+        customer.htmlStatement() == htmlStatement 
+
+        where:
+        rentals                     |   htmlStatement
+        [new Rental(RAN,1)]         |   "<H1>Rentals for <EM>Adam</EM></H1><P>\nRan: 2.0<BR>\n<P>You owe <EM>2.0</EM><P>\nOn this rental you earned <EM>1</EM> frequent renter points<P>"
+        [new Rental(RAN,3)]         |   "<H1>Rentals for <EM>Adam</EM></H1><P>\nRan: 3.5<BR>\n<P>You owe <EM>3.5</EM><P>\nOn this rental you earned <EM>1</EM> frequent renter points<P>"
+        [new Rental(DJANGO,1)]      |   "<H1>Rentals for <EM>Adam</EM></H1><P>\nDjango: 3.0<BR>\n<P>You owe <EM>3.0</EM><P>\nOn this rental you earned <EM>1</EM> frequent renter points<P>"
+        [new Rental(DJANGO,2)]      |   "<H1>Rentals for <EM>Adam</EM></H1><P>\nDjango: 6.0<BR>\n<P>You owe <EM>6.0</EM><P>\nOn this rental you earned <EM>2</EM> frequent renter points<P>"
+        [new Rental(BAMBI,1)]       |   "<H1>Rentals for <EM>Adam</EM></H1><P>\nBambi: 1.5<BR>\n<P>You owe <EM>1.5</EM><P>\nOn this rental you earned <EM>1</EM> frequent renter points<P>"
+        [new Rental(BAMBI,4)]       |   "<H1>Rentals for <EM>Adam</EM></H1><P>\nBambi: 3.0<BR>\n<P>You owe <EM>3.0</EM><P>\nOn this rental you earned <EM>1</EM> frequent renter points<P>"
+    }
 }  
