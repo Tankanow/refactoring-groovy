@@ -53,7 +53,7 @@
 		result
 	}
 
-	private int amountFor(Rental aRental){
+	private double amountFor(Rental aRental){
 
 		double thisAmount = 0
 		//determine amounts for each line
