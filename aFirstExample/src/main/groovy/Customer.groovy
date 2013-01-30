@@ -27,22 +27,38 @@
  	 * Return a statement for this Customer
  	 **/
 	String statement() { 
-		double totalAmount = 0
-		int frequentRenterPoints = 0
 
 		String result = "Rental Record for ${getName()}\n"
 
 		rentals.each { 
-
-			frequentRenterPoints += it.getFrequentRenterPoints()
-
-			//show figures for this rental
 			result += "\t${it.getMovie().getTitle()}\t${String.valueOf(it.getCharge())}\n" 
-			totalAmount += it.getCharge()
 		}
 
 		//add footer lines
-		result += "Amount owed is ${String.valueOf(totalAmount)}\n"
-		result += "You earned ${String.valueOf(frequentRenterPoints)} frequent renter points"
+		result += "Amount owed is ${String.valueOf(getTotalCharge())}\n"
+		result += "You earned ${String.valueOf(getTotalFrequentRenterPoints())} frequent renter points"
 	}
+
+
+	/**
+	 * Get the total charge for this customer
+	 **/ 
+	public double getTotalCharge(){
+
+		rentals.inject(0) { acc, aRental ->
+			acc + aRental.getCharge()
+		}
+
+	}
+
+	/**
+	 * Get the total frequent renter points for this customer
+	 **/
+	public int getTotalFrequentRenterPoints(){
+
+		rentals.inject(0) { acc, aRental ->
+			acc + aRental.getFrequentRenterPoints()
+		}
+
+	}	
  }
