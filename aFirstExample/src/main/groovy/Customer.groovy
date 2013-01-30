@@ -33,8 +33,6 @@
 		String result = "Rental Record for ${getName()}\n"
 
 		rentals.each { 
-			double thisAmount = it.getCharge()
-
 			// add frequent renter points
 			frequentRenterPoints ++
 			// add bonus for a two day new release rental
@@ -43,8 +41,8 @@
 				frequentRenterPoints ++
 
 			//show figures for this rental
-			result += "\t${it.getMovie().getTitle()}\t${String.valueOf(thisAmount)}\n" 
-			totalAmount += thisAmount
+			result += "\t${it.getMovie().getTitle()}\t${String.valueOf(it.getCharge())}\n" 
+			totalAmount += it.getCharge()
 		}
 
 		//add footer lines
