@@ -5,7 +5,7 @@ import spock.lang.*
 
 class RentalTest extends Specification {
 
-    static final COBRA = new Movie("Cobra",Movie.REGULAR)
+    static final COBRA = new Movie("Cobra",PricingStrategy.REGULAR)
     static final NO_DAYS_RENTED = 0
 
     def "Create a new Rental and get its properties"(){

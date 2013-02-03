@@ -8,9 +8,9 @@ class CustomerTest extends Specification {
     /** Names */
     static final MY_NAME = "Adam Tankanow"
     /** Movies */
-    static final RAN = new Movie("Ran",Movie.REGULAR)
-    static final BAMBI = new Movie("Bambi",Movie.CHILDRENS)
-    static final DJANGO = new Movie("Django",Movie.NEW_RELEASE)
+    static final RAN = new Movie("Ran",PricingStrategy.REGULAR)
+    static final BAMBI = new Movie("Bambi",PricingStrategy.CHILDRENS)
+    static final DJANGO = new Movie("Django",PricingStrategy.NEW_RELEASE)
     /** Rentals */
     static final RENTAL = new Rental(RAN,0)
 
