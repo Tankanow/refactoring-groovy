@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite errors="0" failures="0" hostname="bn-atankanow-mac.local" name="DuplicatedCodeTest" tests="2" time="0.432" timestamp="2013-02-16T19:31:52">
+  <properties />
+  <testcase classname="DuplicatedCodeTest" name="Test addOneThenSubtractOne" time="0.128" />
+  <testcase classname="DuplicatedCodeTest" name="Test addOneThenMultiplyByTwo" time="0.0010" />
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
