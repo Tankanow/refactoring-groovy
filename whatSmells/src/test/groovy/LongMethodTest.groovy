@@ -1,3 +1,5 @@
+import util.DAL
+
 /**
  * Test suite for @{link LongMethod}
  **/
@@ -7,8 +9,10 @@ class LongMethodTest extends Specification {
     // Test Values
 
     def "Test longMethodTest"(){
+    	def dal = Mock(DAL)	
+    	def longMethod = new LongMethod(dal)
 
     	expect:
-    	3 == LongMethod.longMethod("foo")
+    	true == longMethod.executeABunchOfStuff("foo", "oof")
     }
 }

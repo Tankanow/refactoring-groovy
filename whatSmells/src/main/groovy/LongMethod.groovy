@@ -1,15 +1,39 @@
+import util.DAL
 /**
  * How many times have you seen one of these?
  **/
 
 class LongMethod {
 
-	static def longMethod(String name){
+	private DAL dal
 
-		int lengthOfName = name.length()
+	public LongMethod(DAL dal){
+		this.dal = dal
+	}
 
-		String reversedName = name.reverse()
+	public boolean executeABunchOfStuff(String firstName, String lastName){
 
-		return reversedName
+		int lengthOfFirstName = firstName.length()
+		int lengthOfLastName = lastName.length()
+		boolean isPalindromicName = false
+
+		String reversedFirstName = firstName.reverse()
+		String reversedLastName = lastName.reverse()
+
+		String uuid = dal.retrieveUUIDbyName(lastName)
+		String pw = dal.retrievePWbyName(lastName)
+
+		loadLoginInformation(uuid, pw)
+
+		if ("${firstName}${lastName}" == "${reversedLastName}${reversedFirstName}"){
+			isPalindromicName = true
+		}
+
+		return isPalindromicName
+	}
+
+
+	private loadLoginInformation(String uuid, String pw){
+		println ("I just loaded some login info")
 	}
 }
