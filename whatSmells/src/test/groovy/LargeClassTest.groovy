@@ -1,3 +1,4 @@
+import util.*
 /**
  * Test suite for @{link DuplicatedCode}
  **/
@@ -7,8 +8,10 @@ class LargeClassTest extends Specification {
     // Test Values
 
     def "Test testLargeClass"(){
+    	def dataAccessLayer = Mock(DAL)
+    	def configurationAccessor = Mock(Config)
 
-    	def largeClass = new LargeClass()
+    	def largeClass = new LargeClass(dataAccessLayer, configurationAccessor)
 
     	when:
     	largeClass.setNumberOfPets(3)
